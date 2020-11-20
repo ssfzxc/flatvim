@@ -1,5 +1,6 @@
 "General settins{{{
 colorscheme gruvbox
+set helplang=cn
 set mouse=nv                 " Disable mouse in command-line mode
 set report=0                 " Don't report on line changes
 set errorbells               " Trigger bell on error

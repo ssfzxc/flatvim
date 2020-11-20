@@ -1,13 +1,68 @@
 "airline{{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
-" set statusline ^= "airline"
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:airline#extensions#coc#enabled = 0
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-" let g:airline_left_sep='>'
-" let g:airline_right_sep='<'
-"}}}
 
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" let g:airline_theme = 'solarized_flood'
+let g:airline_theme = 'molokai'
+
+let g:airline_mode_map = {
+    \ '__'     : '-',
+    \ 'c'      : 'C',
+    \ 'i'      : 'I',
+    \ 'ic'     : 'I',
+    \ 'ix'     : 'I',
+    \ 'n'      : 'N',
+    \ 'multi'  : 'M',
+    \ 'ni'     : 'N',
+    \ 'no'     : 'N',
+    \ 'R'      : 'R',
+    \ 'Rv'     : 'R',
+    \ 's'      : 'S',
+    \ 'S'      : 'S',
+    \ ''     : 'S',
+    \ 't'      : 'T',
+    \ 'v'      : 'V',
+    \ 'V'      : 'V',
+    \ ''     : 'V',
+    \ }
+
+let g:airline#extensions#coc#enabled = 1
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+
+" augroup cocAirlineAutoRefresh
+"   autocmd!
+"   autocmd WinLeave :AirlineRefresh<CR>
+" augroup END
+
+
+"}}}
 
 " vim-floaterm{{{
 " Set floaterm window's background to black
@@ -159,6 +214,15 @@ let g:which_key_map['g'] = {
   \ }
 "}}}
 
+"errors{{{
+let g:which_key_map['e'] = {
+  \ 'name' : '+errors',
+  \ 'l'    : [':CocList diagnostics' , 'list errors'],
+  \ 'L'    : [':CocCommand fzf-preview.CocCurrentDiagnostics', 'fzf errors'],
+  \ }
+"}}}
+
+
 
 "major{{{
 let g:which_key_map['m'] = {
@@ -166,15 +230,18 @@ let g:which_key_map['m'] = {
   \ '='    : [':Format' , 'format'],
   \ }
 
-autocmd filetype javascript let g:which_key_map.m.p = [':Prettier', 'prettier']
-autocmd filetype javascriptreact let g:which_key_map.m.p = [':Prettier', 'prettier']
-autocmd filetype vue let g:which_key_map.m.p = [':Prettier', 'prettier']
-autocmd filetype html let g:which_key_map.m.p = [':Prettier', 'prettier']
-autocmd filetype css let g:which_key_map.m.p = [':Prettier', 'prettier']
-autocmd filetype less let g:which_key_map.m.p = [':Prettier', 'prettier']
-autocmd filetype sass let g:which_key_map.m.p = [':Prettier', 'prettier']
-autocmd filetype scss let g:which_key_map.m.p = [':Prettier', 'prettier']
-autocmd filetype stylus let g:which_key_map.m.p = [':Prettier', 'prettier']
+augroup perttiermap
+  autocmd!
+  autocmd filetype javascript let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype javascriptreact let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype vue let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype html let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype css let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype less let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype sass let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype scss let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype stylus let g:which_key_map.m.p = [':Prettier', 'prettier']
+augroup END
 
 autocmd filetype markdown let g:which_key_map.m.p = ['<Plug>MarkdownPreview', 'markdown preview']
 "}}}

@@ -22,6 +22,7 @@ function! s:main()
     " }}}
 
     " edit enhance{{{
+    call dein#add('asins/vimcdoc')
     call dein#add('skywind3000/asynctasks.vim')
     call dein#add('skywind3000/asyncrun.vim')
     call dein#add('tpope/vim-repeat')
