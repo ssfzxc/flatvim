@@ -113,6 +113,12 @@
   "eslint.autoFixOnSave": true,
   // coc-actions
   "coc-actions.hideCursor": false,
+  "snippets.extends": {
+    "cpp": ["c"],
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"],
+    "vue": ["javascript", "html", "css", "less", "scss", "sass"]
+  },
   // Cspell
   "cSpell.fixSpellingWithRenameProvider": true,
   "cSpell.showStatus": false,

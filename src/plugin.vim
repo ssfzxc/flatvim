@@ -18,10 +18,12 @@ function! s:main()
           \ 'merged': 0,
           \ 'rev': 'release',
           \ })
-    call dein#add('honza/vim-snippets')
+    call dein#add('honza/vim-snippets', {'merged': 0, 'depends': 'coc.nvim', 'if': 'has("pythone3")'})
     " }}}
 
     " edit enhance{{{
+    call dein#add('skywind3000/asynctasks.vim')
+    call dein#add('skywind3000/asyncrun.vim')
     call dein#add('tpope/vim-repeat')
     call dein#add('tpope/vim-surround')
     call dein#add('tpope/vim-commentary')
@@ -48,6 +50,7 @@ function! s:main()
           \ })
     call dein#add('rhysd/accelerated-jk')
     call dein#add('editorconfig/editorconfig-vim')
+    call dein#add('easymotion/vim-easymotion')
     " }}}
 
     "fuzzyfind{{{
@@ -62,6 +65,7 @@ function! s:main()
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('liuchengxu/vim-which-key')
     call dein#add('voldikss/vim-floaterm')
+    " call dein#add('Lokaltog/vim-powerline')
     " explorer => coc-explorer
     " theme
     call dein#add('ryanoasis/vim-devicons')
@@ -94,6 +98,11 @@ function! s:main()
     call dein#add('ekalinin/Dockerfile.vim', {'on_ft': ['Dockerfile', 'docker-compose']})
     call dein#add('ron-rs/ron.vim', {'on_ft': 'ron'})
     call dein#add('plasticboy/vim-markdown', {'on_ft': 'markdown'})
+    "}}}
+    
+    "version{{{
+    call dein#add('lambdalisue/gina.vim', {'on_cmd': 'Gina'})
+    call dein#add('tpope/vim-fugitive', {'on_cmd': [ 'G', 'Git', 'Gfetch', 'Gpush', 'Glog', 'Gclog', 'Gdiffsplit' ]})
     "}}}
 
     call dein#end()

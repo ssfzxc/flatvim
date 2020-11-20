@@ -1,9 +1,11 @@
 "airline{{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
-set statusline ^= "airline"
+" set statusline ^= "airline"
 let g:airline#extensions#coc#enabled = 0
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+" let g:airline_left_sep='>'
+" let g:airline_right_sep='<'
 "}}}
 
 
@@ -27,6 +29,7 @@ let g:which_key_map =  {}
 " root{{{
 let g:which_key_map["'"] = [':CocCommand floaterm.new', 'open shell']
 let g:which_key_map['?'] = [':Maps', 'Mappings']
+let g:which_key_map[' '] = [':CocList', 'coc-actions']
 " }}}
 
 
@@ -35,10 +38,18 @@ let g:which_key_map['a'] = {
   \ 'name' : '+application',
   \ 'a'    : [':CocList'                           , 'coc-actions'],
   \ 'c'    : [':Colors'                           , 'color scheme'],
+  \ 's'    : ['coc#refresh()'                     , 'coc-refresh'],
   \ 'p': {
     \ 'name' : '+plugins',
     \ 'i': [':DeinInstall', 'install'],
     \ 'u': [':DeinUpdate', 'update']
+  \   },
+  \ 't'    : {
+    \ 'name': '+todo',
+    \ 'l'   : [':CocList todolist', 'todolist'],
+    \ 'n'   : [':CocCommand todolist.create', 'new todo'],
+    \ 'e'   : [':CocCommand todolist.export', 'export todolist'],
+    \ 'c'   : [':CocCommand todolist.clear', 'clear todolist']
   \   }
   \ }
 "}}}
@@ -92,6 +103,7 @@ endfor
 
 "}}}
 
+
 "files{{{
 let g:which_key_map.0 = [':CocCommand explorer', 'File explorer']
 let g:which_key_map['f'] = {
@@ -118,6 +130,8 @@ let g:which_key_map['s'] = {
   \ 'a': [':Ag', 'ag'],
   \ 'r': [':Rg', 'rg'],
   \ 'c': 'clear-search-highlight',
+  \ 'y': [':CocList yank'    , 'yanks'],
+  \ 'Y': [':CocCommand yank.clear'    , 'clear-yanks'],
   \ }
 nnoremap <silent> <Leader>sc :nohlsearch<CR>
   " \ 'c': [':nohlsearch', 'clear-search-highlight'],
@@ -128,29 +142,79 @@ let g:which_key_map['v'] = {
   \ 'name' : '+vista/tags',
   \ 'v'    : [':Vista!!'                           , 'vista'],
   \ 'b'    : [':CocCommand fzf-preview.BufferTags' , 'tags-in-current-buffer'],
+  \ 'c'    : ['<Plug>(coc-rename)'                 , 'symbol-rename'],
   \ }
 "}}}
 
 "git{{{
 let g:which_key_map['g'] = {
   \ 'name' : '+git/version-control',
+  \ 'f'    : [':CocCommand fzf-preview.GitFiles' , 'gitfiles'],
   \ 'a'    : [':CocCommand fzf-preview.GitActions' , 'actions'],
   \ 'c'    : [':CocCommand fzf-preview.Changes'    , 'changlist'],
   \ 's'    : [':CocCommand fzf-preview.GitStatus' , 'status'],
+  \ 'l'    : [':CocCommand fzf-preview.GitLogs'    , 'logs'],
+  \ 'L'    : [':CocCommand fzf-preview.GitReflogs', 'reflogs'],
+  \ 'b'    : [':CocCommand fzf-preview.GitBranches', 'branches'],
   \ }
 "}}}
 
 
-"marks/major{{{
+"major{{{
 let g:which_key_map['m'] = {
-  \ 'name' : '+marks/marjor',
+  \ 'name' : '+marjor',
   \ '='    : [':Format' , 'format'],
-  \ 'm'    : [':CocCommand fzf-preview.Marks'    , 'marks'],
   \ }
+
+autocmd filetype javascript let g:which_key_map.m.p = [':Prettier', 'prettier']
+autocmd filetype javascriptreact let g:which_key_map.m.p = [':Prettier', 'prettier']
+autocmd filetype vue let g:which_key_map.m.p = [':Prettier', 'prettier']
+autocmd filetype html let g:which_key_map.m.p = [':Prettier', 'prettier']
+autocmd filetype css let g:which_key_map.m.p = [':Prettier', 'prettier']
+autocmd filetype less let g:which_key_map.m.p = [':Prettier', 'prettier']
+autocmd filetype sass let g:which_key_map.m.p = [':Prettier', 'prettier']
+autocmd filetype scss let g:which_key_map.m.p = [':Prettier', 'prettier']
+autocmd filetype stylus let g:which_key_map.m.p = [':Prettier', 'prettier']
 
 autocmd filetype markdown let g:which_key_map.m.p = ['<Plug>MarkdownPreview', 'markdown preview']
 "}}}
 
+"marks/bookmark{{{
+let g:which_key_map['M'] = {
+  \ 'name' : '+marks/bookmark',
+  \ 'L'    : [':CocCommand fzf-preview.Marks'    , 'marks'],
+  \ 'd'    : [':delm!'                          , 'delete-marks'],
+  \ 'l'    : [':CocList bookmark'    , 'marks'],
+  \ 'm'    : [':CocCommand bookmark.toggle'      , 'bookmark-create/delete'],
+  \ 'a'    : [':CocCommand bookmark.annotate'    , 'bookmark-annotate'],
+  \ 'p'    : [':CocCommand bookmark.prev'        , 'bookmark-prev'],
+  \ 'n'    : [':CocCommand bookmark.next'        , 'bookmark-next'],
+  \ 'c'    : [':CocCommand bookmark.clearForCurrentFile', 'bookmark-clear'],
+  \ 'C'    : [':CocCommand bookmark.clearForAllFiles', 'bookmark-clear-all'],
+  \ }
+"}}}
+
+"jump{{{
+map  <Leader>jc <Plug>(easymotion-bd-f)
+nmap <Leader>jc <Plug>(easymotion-overwin-f)
+map <Leader>jl <Plug>(easymotion-bd-jk)
+nmap <Leader>jl <Plug>(easymotion-overwin-line)
+map  <Leader>jw <Plug>(easymotion-bd-w)
+nmap <Leader>jw <Plug>(easymotion-overwin-w)
+
+let g:which_key_map['j'] = {
+  \ 'name' : '+jump',
+  \ 'c'    : 'jump char',
+  \ 's'    : ['<Plug>(easymotion-overwin-f2)', 'jump 2char'],
+  \ 'l'    : 'jump line',
+  \ 'w'    : 'jump word',
+  \ 'W'    : ['<Plug>(easymotion-w)'    , 'jump next word'],
+  \ 'j'    : ['<Plug>(easymotion-j)'        , 'jump next'],
+  \ 'k'    : ['<Plug>(easymotion-k)'        , 'jump prev'],
+  \ 'r'    : ['<Plug>(easymotion-repeat)'        , 'jump repeat'],
+  \ }
+"}}}
+"}}}
 
 call which_key#register('<Space>', "g:which_key_map")
 

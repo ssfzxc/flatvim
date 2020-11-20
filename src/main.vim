@@ -1,5 +1,9 @@
 scriptencoding utf-8
 
+if &compatible
+	set nocompatible
+endif
+
 " Public Options {{{
 
 let g:escape_key_binding = 'jk'
@@ -33,6 +37,11 @@ function! s:general_map()
     inoremap <C-b> <left>
     inoremap <C-a> <Home>
     inoremap <C-e> <End>
+    cnoremap <C-f> <Right>
+    cnoremap <C-b> <left>
+    cnoremap <C-a> <Home>
+    cnoremap <C-e> <End>
+    cnoremap <C-d> <Delete>
   endif
 endfunction
 
@@ -55,11 +64,14 @@ call s:main()
 
 "import configuration files{{{
 call util#import('plugin.vim')
-call util#import('general.vim')
 call util#import('completion.vim')
 call util#import('enhance.vim')
+call util#import('filetype.vim')
 call util#import('fuzzyfind.vim')
+call util#import('general.vim')
+call util#import('languages.vim')
 call util#import('ui.vim')
+call util#import('version.vim')
 "}}}
 
 " vim: set ts=2 sw=2 tw=80 noet :

@@ -7,4 +7,12 @@ nmap <silent>j <Plug>(accelerated_jk_gj)
 nmap <silent>k <Plug>(accelerated_jk_gk)
 " }}}
 
+"asynctasks/asyncrun{{{
+let g:asyncrun_open = 6
+"}}}
 
+
+"easymotion{{{
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_leader_key = '<LocalLeader>'
+"}}}
