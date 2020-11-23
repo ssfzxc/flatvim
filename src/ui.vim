@@ -223,44 +223,6 @@ let g:which_key_map['e'] = {
 "}}}
 
 
-
-"major{{{
-let g:which_key_map['m'] = {
-  \ 'name' : '+marjor',
-  \ '='    : [':Format' , 'format'],
-  \ }
-
-augroup perttiermap
-  autocmd!
-  autocmd filetype javascript let g:which_key_map.m.p = [':Prettier', 'prettier']
-  autocmd filetype javascriptreact let g:which_key_map.m.p = [':Prettier', 'prettier']
-  autocmd filetype vue let g:which_key_map.m.p = [':Prettier', 'prettier']
-  autocmd filetype html let g:which_key_map.m.p = [':Prettier', 'prettier']
-  autocmd filetype css let g:which_key_map.m.p = [':Prettier', 'prettier']
-  autocmd filetype less let g:which_key_map.m.p = [':Prettier', 'prettier']
-  autocmd filetype sass let g:which_key_map.m.p = [':Prettier', 'prettier']
-  autocmd filetype scss let g:which_key_map.m.p = [':Prettier', 'prettier']
-  autocmd filetype stylus let g:which_key_map.m.p = [':Prettier', 'prettier']
-augroup END
-
-autocmd filetype markdown let g:which_key_map.m.p = ['<Plug>MarkdownPreview', 'markdown preview']
-"}}}
-
-"marks/bookmark{{{
-let g:which_key_map['M'] = {
-  \ 'name' : '+marks/bookmark',
-  \ 'L'    : [':CocCommand fzf-preview.Marks'    , 'marks'],
-  \ 'd'    : [':delm!'                          , 'delete-marks'],
-  \ 'l'    : [':CocList bookmark'    , 'marks'],
-  \ 'm'    : [':CocCommand bookmark.toggle'      , 'bookmark-create/delete'],
-  \ 'a'    : [':CocCommand bookmark.annotate'    , 'bookmark-annotate'],
-  \ 'p'    : [':CocCommand bookmark.prev'        , 'bookmark-prev'],
-  \ 'n'    : [':CocCommand bookmark.next'        , 'bookmark-next'],
-  \ 'c'    : [':CocCommand bookmark.clearForCurrentFile', 'bookmark-clear'],
-  \ 'C'    : [':CocCommand bookmark.clearForAllFiles', 'bookmark-clear-all'],
-  \ }
-"}}}
-
 "jump{{{
 map  <Leader>jc <Plug>(easymotion-bd-f)
 nmap <Leader>jc <Plug>(easymotion-overwin-f)
@@ -281,6 +243,48 @@ let g:which_key_map['j'] = {
   \ 'r'    : ['<Plug>(easymotion-repeat)'        , 'jump repeat'],
   \ }
 "}}}
+"}}}
+
+
+"marks/bookmark{{{
+let g:which_key_map['M'] = {
+  \ 'name' : '+marks/bookmark',
+  \ 'L'    : [':CocCommand fzf-preview.Marks'    , 'marks'],
+  \ 'd'    : [':delm!'                          , 'delete-marks'],
+  \ 'l'    : [':CocList bookmark'    , 'marks'],
+  \ 'm'    : [':CocCommand bookmark.toggle'      , 'bookmark-create/delete'],
+  \ 'a'    : [':CocCommand bookmark.annotate'    , 'bookmark-annotate'],
+  \ 'p'    : [':CocCommand bookmark.prev'        , 'bookmark-prev'],
+  \ 'n'    : [':CocCommand bookmark.next'        , 'bookmark-next'],
+  \ 'c'    : [':CocCommand bookmark.clearForCurrentFile', 'bookmark-clear'],
+  \ 'C'    : [':CocCommand bookmark.clearForAllFiles', 'bookmark-clear-all'],
+  \ }
+"}}}
+
+"major{{{
+let g:which_key_map['m'] = {
+  \ 'name' : '+marjor',
+  \ '='    : [':Format' , 'format'],
+  \ }
+
+augroup perttiermap
+  autocmd!
+  autocmd filetype javascript let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype javascriptreact let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype vue let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype html let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype css let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype less let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype sass let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype scss let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype stylus let g:which_key_map.m.p = [':Prettier', 'prettier']
+augroup END
+
+augroup markdownmap
+  autocmd!
+  autocmd filetype markdown let g:which_key_map.m.p = ['<Plug>MarkdownPreview', 'markdown preview']
+  autocmd filetype markdown let g:which_key_map.m.P = ['<Plug>MarkdownPreviewStop', 'markdown preview']
+augroup END
 "}}}
 
 call which_key#register('<Space>', "g:which_key_map")
