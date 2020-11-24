@@ -8,7 +8,7 @@ default: install
 
 install:
 	@mkdir -vp "$(XDG_CACHE_HOME)/vim/"{backup,session,swap,tags,undo}; \
-	$(vim)  -V1 -es -i NONE -N --noplugin -u core/dein.vim -c "try | call dein#update() | call dein#recache_runtimepath() | finally | echomsg '' | qall! | endtry"
+	$(vim)  -V1 -es -i NONE -N --noplugin -u src/plugin.vim -c "try | call dein#update() | call dein#recache_runtimepath() | finally | echomsg '' | qall! | endtry"
 
 upgrade:
 	$(vim) -V1 -es -i NONE -N --noplugin -u init.vim -c "try | call dein#clear_state() | call dein#update() | finally | qall! | endtry"

@@ -23,10 +23,13 @@ function! s:main()
 
     " edit enhance{{{
     call dein#add('asins/vimcdoc')
+    " async task
     call dein#add('skywind3000/asynctasks.vim')
     call dein#add('skywind3000/asyncrun.vim')
+    " edit enhance
     call dein#add('tpope/vim-repeat')
     call dein#add('tpope/vim-surround')
+    " comment
     call dein#add('tpope/vim-commentary')
     call dein#add('luochen1990/rainbow',
           \ { 'on_ft':
@@ -49,10 +52,15 @@ function! s:main()
             \ 'toml'
             \ ]
           \ })
+    " quick move jk
     call dein#add('rhysd/accelerated-jk')
+    " editorconfig
     call dein#add('editorconfig/editorconfig-vim')
+    " jump
     call dein#add('easymotion/vim-easymotion')
-    " }}}
+    " multi cursor
+    " call dein#add('mg979/vim-visual-multi')
+    " " }}}
 
     "fuzzyfind{{{
     call dein#add('junegunn/fzf.vim')
@@ -62,6 +70,7 @@ function! s:main()
     "}}}
 
     "ui{{{
+    call dein#add('mhinz/vim-startify')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('liuchengxu/vim-which-key')

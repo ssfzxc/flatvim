@@ -1,3 +1,15 @@
+" startify{{{
+let g:startify_custom_header = [
+        \ '                                 ________  __ __        ',
+        \ '            __                  /\_____  \/\ \\ \       ',
+        \ '    __  __ /\_\    ___ ___      \/___//''/''\ \ \\ \    ',
+        \ '   /\ \/\ \\/\ \ /'' __` __`\        /'' /''  \ \ \\ \_ ',
+        \ '   \ \ \_/ |\ \ \/\ \/\ \/\ \      /'' /''__  \ \__ ,__\',
+        \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
+        \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
+        \ ]
+" }}}
+
 "airline{{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
@@ -61,6 +73,21 @@ let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 "   autocmd WinLeave :AirlineRefresh<CR>
 " augroup END
 
+" visual-multi
+nmap <silent> <C-c> <Plug>(coc-cursors-position)
+nmap <expr> <silent> <C-n> <SID>select_current_word()
+function! s:select_current_word()
+    if !get(g:, 'coc_cursors_activated', 0)
+        return "\<Plug>(coc-cursors-word)"
+    endif
+    return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc
+
+xmap <silent> <C-n> y/\V<C-r>=escape(@",'/\')<CR><CR>gN<Plug>(coc-cursors-range)gn
+nmap <silent> <C-a> :CocCommand document.renameCurrentWord<cr>
+
+" use normal command like `<leader>xi(`
+nmap <leader>x  <Plug>(coc-cursors-operator)
 
 "}}}
 
@@ -91,7 +118,8 @@ let g:which_key_map[' '] = [':CocList', 'coc-actions']
 "application{{{
 let g:which_key_map['a'] = {
   \ 'name' : '+application',
-  \ 'a'    : [':CocList'                           , 'coc-actions'],
+  \ 'a'    : [':CocList'                          , 'coc-actions'],
+  \ 'h'    : [':Startify'                          , 'home-buffer']     ,
   \ 'c'    : [':Colors'                           , 'color scheme'],
   \ 's'    : ['coc#refresh()'                     , 'coc-refresh'],
   \ 'p': {
@@ -149,7 +177,6 @@ let g:which_key_map['b'] = {
       \ 'p'   : [':bprevious'                         , 'previous-buffer'] ,
       \ '1..9': 'select buffers 1..9'                                     ,
       \ }
-      " \ 'h'   : ['Startify'                          , 'home-buffer']     ,
 
 for s:i in range(1, 9)
   let g:which_key_map.b[s:i] = 'which_key_ignore'
@@ -163,7 +190,8 @@ endfor
 let g:which_key_map.0 = [':CocCommand explorer', 'File explorer']
 let g:which_key_map['f'] = {
       \ 'name' : '+file' ,
-      \ 'f'    : [':CocCommand fzf-preview.ProjectFiles'     , 'list-files']      ,
+      \ 'f'    : [':CocCommand fzf-preview.DirectoryFiles'     , 'list-files']      ,
+      \ 'F'    : [':CocCommand fzf-preview.ProjectFiles'     , 'list-files(git)']      ,
       \ 'r'    : [':CocCommand fzf-preview.ProjectMrwFiles'  , 'recent']          ,
       \ 'h'    : [':CocCommand fzf-preview.OldFiles'         , 'history']         ,
       \ 's'    : [':w'                                       , 'Save']            ,
@@ -214,11 +242,13 @@ let g:which_key_map['g'] = {
   \ }
 "}}}
 
-"errors{{{
+"errors/diagnostics{{{
 let g:which_key_map['e'] = {
   \ 'name' : '+errors',
   \ 'l'    : [':CocList diagnostics' , 'list errors'],
   \ 'L'    : [':CocCommand fzf-preview.CocCurrentDiagnostics', 'fzf errors'],
+  \ 'n'    : ['<Plug>(coc-diagnostic-next)', 'next error'],
+  \ 'p'    : ['<Plug>(coc-diagnostic-prev)', 'prev error'],
   \ }
 "}}}
 
@@ -226,7 +256,7 @@ let g:which_key_map['e'] = {
 "jump{{{
 map  <Leader>jc <Plug>(easymotion-bd-f)
 nmap <Leader>jc <Plug>(easymotion-overwin-f)
-map <Leader>jl <Plug>(easymotion-bd-jk)
+map  <Leader>jl <Plug>(easymotion-bd-jk)
 nmap <Leader>jl <Plug>(easymotion-overwin-line)
 map  <Leader>jw <Plug>(easymotion-bd-w)
 nmap <Leader>jw <Plug>(easymotion-overwin-w)
@@ -264,7 +294,9 @@ let g:which_key_map['M'] = {
 "major{{{
 let g:which_key_map['m'] = {
   \ 'name' : '+marjor',
-  \ '='    : [':Format' , 'format'],
+  \ '='    : [':Format'                     , 'format'],
+  \ 'r'    : ['<Plug>(coc-refactor)'        , 'refactor'],
+  \ 'f'    : ['<Plug>(coc-fix-current)'     , 'fix code'],
   \ }
 
 augroup perttiermap
