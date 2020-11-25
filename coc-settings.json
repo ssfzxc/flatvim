@@ -155,5 +155,14 @@
     "yaml",
     "yml",
     "vim"
-  ]
+  ],
+  "java.format.settings.url": "/home/ssf/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+  //java
+  // "java.configuration.runtimes": [
+  //   {
+  //     "name": "JavaSE-default",
+  //     "path": "/usr/lib/jvm/default",
+  //     "default": true
+  //   }
+  // ]
 }

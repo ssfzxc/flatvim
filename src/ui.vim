@@ -119,9 +119,10 @@ let g:which_key_map[' '] = [':CocList', 'coc-actions']
 let g:which_key_map['a'] = {
   \ 'name' : '+application',
   \ 'a'    : [':CocList'                          , 'coc-actions'],
-  \ 'h'    : [':Startify'                          , 'home-buffer']     ,
+  \ 'h'    : [':Startify'                         , 'home-buffer']     ,
   \ 'c'    : [':Colors'                           , 'color scheme'],
   \ 's'    : ['coc#refresh()'                     , 'coc-refresh'],
+  \ 'm'    : [':messages'                         , 'vim-messages'],
   \ 'p': {
     \ 'name' : '+plugins',
     \ 'i': [':DeinInstall', 'install'],
@@ -170,7 +171,8 @@ let g:which_key_map['<Tab>'] = [':bn', 'last-buffer']
 let g:which_key_map['b'] = {
       \ 'name' : '+buffers' ,
       \ 'b'   : [':CocCommand fzf-preview.Buffers'    , 'list-buffers']    ,
-      \ 'd'   : [':bd'                                , 'delete-buffer']   ,
+      \ 'd'   : [':bw%'                                , 'delete-buffer']   ,
+      \ 'c'   : ['util#clear_buffers()'          , 'clear-all-saved-buffers']   ,
       \ 'f'   : [':bfirst'                            , 'first-buffer']    ,
       \ 'l'   : [':blast'                             , 'last-buffer']     ,
       \ 'n'   : [':bnext'                             , 'next-buffer']     ,
