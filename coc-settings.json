@@ -77,14 +77,18 @@
   "prettier.statusItemText": "ⓟ ",
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": false,
-  "prettier.stylelintIntegration": true,
+  "prettier.stylelintIntegration": false,
   "prettier.disableSuccessMessage": true,
   //emmet
   "emmet.includeLanguages": {
+    "vue": "html",
     "vue-html": "html",
     "javascript": "javascriptreact",
     "typescriptreact": "typescriptreact"
   },
+  //html
+  "html.trace.server": "message",
+  "html.format.enable": true,
   //imselect
   "imselect.enableStatusItem": false,
   //multiple curssor
@@ -156,8 +160,12 @@
     "yml",
     "vim"
   ],
-  "java.format.settings.url": "/home/ssf/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
   //java
+  "java.enabled": true,
+  "java.referencesCodeLens.enabled": true,
+  "java.implementationsCodeLens.enabled": true,
+  "java.signatureHelp.enabled": true,
+  "java.format.enabled": true
   // "java.configuration.runtimes": [
   //   {
   //     "name": "JavaSE-default",
@@ -165,4 +173,11 @@
   //     "default": true
   //   }
   // ]
+  //json
+  // "json.schemas": [
+  //   {
+  //       "fileMatch": [".cspell.json", "cspell.json", "cSpell.json"],
+  //       "url": "/home/ssf/.config/coc/extensions/node_modules/coc-json/cspell.schema.json"
+  //   }
+  // ],
 }

@@ -81,8 +81,9 @@ function! s:main()
     call dein#add('ryanoasis/vim-devicons')
     call dein#add('kyazdani42/nvim-web-devicons')
     call dein#add('gruvbox-community/gruvbox')
+    call dein#add('jsit/toast.vim')
     "}}}
-    
+
     "languages{{{
     call dein#add('othree/html5.vim', {'on_ft': 'html'})
     call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript', 'javascriptreact', 'vue']})

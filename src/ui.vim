@@ -216,7 +216,7 @@ let g:which_key_map['s'] = {
   \ 'r': [':Rg', 'rg'],
   \ 'c': 'clear-search-highlight',
   \ 'y': [':CocList yank'    , 'yanks'],
-  \ 'Y': [':CocCommand yank.clear'    , 'clear-yanks'],
+  \ 'Y': [':CocCommand yank.clean'    , 'clean-yanks'],
   \ }
 nnoremap <silent> <Leader>sc :nohlsearch<CR>
   " \ 'c': [':nohlsearch', 'clear-search-highlight'],
@@ -251,6 +251,7 @@ let g:which_key_map['e'] = {
   \ 'L'    : [':CocCommand fzf-preview.CocCurrentDiagnostics', 'fzf errors'],
   \ 'n'    : ['<Plug>(coc-diagnostic-next)', 'next error'],
   \ 'p'    : ['<Plug>(coc-diagnostic-prev)', 'prev error'],
+  \ 'f'    : ['<Plug>(coc-fix-current)'     , 'fix code'],
   \ }
 "}}}
 
@@ -296,9 +297,9 @@ let g:which_key_map['M'] = {
 "major{{{
 let g:which_key_map['m'] = {
   \ 'name' : '+marjor',
-  \ '='    : [':Format'                     , 'format'],
-  \ 'r'    : ['<Plug>(coc-refactor)'        , 'refactor'],
-  \ 'f'    : ['<Plug>(coc-fix-current)'     , 'fix code'],
+  \ '='    : [':Format'                                  , 'format'          ],
+  \ 'o'    : [':CocCommand editor.action.organizeImport' , 'optimize import' ],
+  \ 'r'    : ['<Plug>(coc-refactor)'                     , 'refactor'        ],
   \ }
 
 augroup perttiermap
@@ -306,12 +307,12 @@ augroup perttiermap
   autocmd filetype javascript let g:which_key_map.m.p = [':Prettier', 'prettier']
   autocmd filetype javascriptreact let g:which_key_map.m.p = [':Prettier', 'prettier']
   autocmd filetype vue let g:which_key_map.m.p = [':Prettier', 'prettier']
-  autocmd filetype html let g:which_key_map.m.p = [':Prettier', 'prettier']
   autocmd filetype css let g:which_key_map.m.p = [':Prettier', 'prettier']
   autocmd filetype less let g:which_key_map.m.p = [':Prettier', 'prettier']
   autocmd filetype sass let g:which_key_map.m.p = [':Prettier', 'prettier']
   autocmd filetype scss let g:which_key_map.m.p = [':Prettier', 'prettier']
   autocmd filetype stylus let g:which_key_map.m.p = [':Prettier', 'prettier']
+  autocmd filetype json let g:which_key_map.m.p = [':Prettier', 'prettier']
 augroup END
 
 augroup markdownmap
@@ -319,6 +320,20 @@ augroup markdownmap
   autocmd filetype markdown let g:which_key_map.m.p = ['<Plug>MarkdownPreview', 'markdown preview']
   autocmd filetype markdown let g:which_key_map.m.P = ['<Plug>MarkdownPreviewStop', 'markdown preview']
 augroup END
+
+
+augroup javamap
+  autocmd!
+  " autocmd filetype java let g:which_key_map.m.o = [':CocCommand editor.action.organizeImport', 'optimize import']
+augroup END
+
+augroup svgmap
+  autocmd!
+  autocmd filetype svg let g:which_key_map.m.s = [':CocCommand svg.showSvg', 'svg preview']
+  autocmd filetype svg let g:which_key_map.m.p = [':CocCommand svg.prettySvg', 'svg pretty']
+  autocmd filetype svg let g:which_key_map.m.m = [':CocCommand svg.minifySvg', 'svg minify']
+augroup END
+
 "}}}
 
 call which_key#register('<Space>', "g:which_key_map")
