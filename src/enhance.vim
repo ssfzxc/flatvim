@@ -16,3 +16,11 @@ let g:asyncrun_open = 6
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_leader_key = '<LocalLeader>'
 "}}}
+
+" vim-commentary {{{
+" autocmd! BufRead,BufNewFile *.vue setlocal commentstring=//\ %s
+augroup comment_ft
+  autocmd!
+  autocmd FileType vue set commentstring=//\ %s
+augroup END
+" }}}

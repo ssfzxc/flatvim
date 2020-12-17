@@ -84,7 +84,7 @@ function! s:select_current_word()
 endfunc
 
 xmap <silent> <C-n> y/\V<C-r>=escape(@",'/\')<CR><CR>gN<Plug>(coc-cursors-range)gn
-nmap <silent> <C-a> :CocCommand document.renameCurrentWord<cr>
+" nmap <silent> <C-a> :CocCommand document.renameCurrentWord<cr>
 
 " use normal command like `<leader>xi(`
 nmap <leader>x  <Plug>(coc-cursors-operator)

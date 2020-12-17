@@ -1,6 +1,6 @@
 "General settins{{{
-" colorscheme gruvbox
-colorscheme toast
+ colorscheme gruvbox
+" colorscheme toast
 set helplang=cn
 set mouse=nv                 " Disable mouse in command-line mode
 set report=0                 " Don't report on line changes
@@ -9,8 +9,8 @@ set visualbell               " Use visual bell instead of beeping
 set hidden                   " hide buffers when abandoned instead of unload
 set fileformats=unix,dos,mac " Use Unix as the standard file type
 set magic                    " For regular expressions turn magic on
-set path+=**                 " Directories to search when using gf and friends
-set isfname-==               " Remove =, detects filename in var=/foo/bar
+" set path+=**                 " Directories to search when using gf and friends
+" set isfname-==               " Remove =, detects filename in var=/foo/bar
 set virtualedit=block        " Position cursor anywhere in visual block
 set synmaxcol=2500           " Don't syntax highlight long lines
 set formatoptions+=1         " Don't break lines after a one-letter word
@@ -19,6 +19,8 @@ set formatoptions-=o         " Disable comment-continuation (normal 'o'/'O')
 if has('patch-7.3.541')
 	set formatoptions+=j       " Remove comment leader when joining lines
 endif
+filetype plugin indent on
+syntax enable
 
 if has('vim_starting')
 	set encoding=utf-8

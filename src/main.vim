@@ -64,11 +64,11 @@ call s:main()
 
 "import configuration files{{{
 call util#import('plugin.vim')
+call util#import('general.vim')
 call util#import('completion.vim')
 call util#import('enhance.vim')
 call util#import('filetype.vim')
 call util#import('fuzzyfind.vim')
-call util#import('general.vim')
 call util#import('languages.vim')
 call util#import('ui.vim')
 call util#import('version.vim')

@@ -81,7 +81,9 @@ function! s:main()
     call dein#add('ryanoasis/vim-devicons')
     call dein#add('kyazdani42/nvim-web-devicons')
     call dein#add('gruvbox-community/gruvbox')
+    " colorscheme
     call dein#add('jsit/toast.vim')
+    call dein#add('altercation/vim-colors-solarized')
     "}}}
 
     "languages{{{

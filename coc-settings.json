@@ -81,8 +81,8 @@
   "prettier.disableSuccessMessage": true,
   //emmet
   "emmet.includeLanguages": {
-    "vue": "html",
-    "vue-html": "html",
+    "vue": "javascriptreact",
+    "vue-html": "javascriptreact",
     "javascript": "javascriptreact",
     "typescriptreact": "typescriptreact"
   },
