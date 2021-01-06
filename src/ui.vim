@@ -8,6 +8,13 @@ let g:startify_custom_header = [
         \ '    \ \___/  \ \_\ \_\ \_\ \_\    /\_/ /\_\  \/_/\_\_/  ',
         \ '     \/__/    \/_/\/_/\/_/\/_/    \//  \/_/     \/_/    ',
         \ ]
+
+let g:startify_lists = [
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
 " }}}
 
 "airline{{{

@@ -84,6 +84,9 @@ function! s:main()
     " colorscheme
     call dein#add('jsit/toast.vim')
     call dein#add('altercation/vim-colors-solarized')
+    call dein#add('reedes/vim-colors-pencil')
+    call dein#add('srcery-colors/srcery-vim')
+    call dein#add('romainl/Apprentice')
     "}}}
 
     "languages{{{
@@ -110,12 +113,12 @@ function! s:main()
     call dein#add('kevinoid/vim-jsonc', {'on_ft': 'json'})
     call dein#add('ekalinin/Dockerfile.vim', {'on_ft': ['Dockerfile', 'docker-compose']})
     call dein#add('ron-rs/ron.vim', {'on_ft': 'ron'})
-    call dein#add('plasticboy/vim-markdown', {'on_ft': 'markdown'})
     "}}}
     
     "version{{{
     call dein#add('lambdalisue/gina.vim', {'on_cmd': 'Gina'})
     call dein#add('tpope/vim-fugitive', {'on_cmd': [ 'G', 'Git', 'Gfetch', 'Gpush', 'Glog', 'Gclog', 'Gdiffsplit' ]})
+    call dein#add('mhinz/vim-signify')
     "}}}
 
     call dein#end()
