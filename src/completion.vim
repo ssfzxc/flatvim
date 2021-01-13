@@ -33,6 +33,8 @@ let g:coc_global_extensions =[
 \ 'coc-stylelint',
 \ 'coc-vetur',
 \ 'coc-svg',
+\ 'coc-python',
+\ 'coc-pyright'
 \]
 
 augroup coc_event
