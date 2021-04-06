@@ -4,7 +4,9 @@ let g:coc_snippet_prev = '<S-TAB>'
 let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
 let g:coc_global_extensions =[
+\ 'coc-marketplace',
 \ 'coc-actions',
+\ 'coc-zi',
 \ 'coc-explorer',
 \ 'coc-floaterm',
 \ 'coc-fzf-preview',
@@ -13,7 +15,6 @@ let g:coc_global_extensions =[
 \ 'coc-pairs',
 \ 'coc-highlight',
 \ 'coc-emoji',
-\ 'coc-bookmark',
 \ 'coc-lists',
 \ 'coc-json',
 \ 'coc-yaml',
@@ -25,6 +26,7 @@ let g:coc_global_extensions =[
 \ 'coc-spell-checker',
 \ 'coc-vimlsp',
 \ 'coc-rls',
+\ 'coc-go',
 \ 'coc-prettier',
 \ 'coc-tsserver',
 \ 'coc-html',
@@ -33,9 +35,9 @@ let g:coc_global_extensions =[
 \ 'coc-stylelint',
 \ 'coc-vetur',
 \ 'coc-svg',
-\ 'coc-python',
 \ 'coc-pyright'
 \]
+" \ 'coc-python',
 
 augroup coc_event
   autocmd!

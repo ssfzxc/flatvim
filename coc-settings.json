@@ -165,7 +165,7 @@
   "java.referencesCodeLens.enabled": true,
   "java.implementationsCodeLens.enabled": true,
   "java.signatureHelp.enabled": true,
-  "java.format.enabled": true
+  "java.format.enabled": true,
   // "java.configuration.runtimes": [
   //   {
   //     "name": "JavaSE-default",
@@ -180,4 +180,5 @@
   //       "url": "/home/ssf/.config/coc/extensions/node_modules/coc-json/cspell.schema.json"
   //   }
   // ],
+  "zi.enable": true,
 }

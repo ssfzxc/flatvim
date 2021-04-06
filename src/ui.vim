@@ -36,7 +36,7 @@ let g:airline_right_alt_sep = ''
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
@@ -44,7 +44,7 @@ let g:airline_symbols.dirty='⚡'
 let g:airline_symbols.crypt = '🔒'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.notexists = ''
 let g:airline_symbols.whitespace = 'Ξ'
 
 " let g:airline_theme = 'solarized_flood'
@@ -110,9 +110,9 @@ nmap <leader>x  <Plug>(coc-cursors-operator)
 set timeoutlen=500
 
 let g:mapleader = "\<Space>"
-let g:maplocalleader = '\\'
+let g:maplocalleader = '\'
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  '\\'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
 let g:which_key_map =  {}
 
 " root{{{
@@ -130,12 +130,13 @@ let g:which_key_map['a'] = {
   \ 'c'    : [':Colors'                           , 'color scheme'],
   \ 's'    : ['coc#refresh()'                     , 'coc-refresh'],
   \ 'm'    : [':messages'                         , 'vim-messages'],
+  \ 't'    : [':CocList translators'              , 'translators'],
   \ 'p': {
     \ 'name' : '+plugins',
     \ 'i': [':DeinInstall', 'install'],
     \ 'u': [':DeinUpdate', 'update']
   \   },
-  \ 't'    : {
+  \ 'T'    : {
     \ 'name': '+todo',
     \ 'l'   : [':CocList todolist', 'todolist'],
     \ 'n'   : [':CocCommand todolist.create', 'new todo'],
@@ -189,7 +190,8 @@ let g:which_key_map['b'] = {
 
 for s:i in range(1, 9)
   let g:which_key_map.b[s:i] = 'which_key_ignore'
-  execute 'nmap <Leader>b' . s:i . ' <Plug>AirlineSelectTab' . s:i
+  execute 'nmap <leader>b' . s:i . ' <Plug>AirlineSelectTab' . s:i
+  execute 'nmap <localleader>' . s:i . ' <Plug>AirlineSelectTab' . s:i
 endfor
 
 "}}}
