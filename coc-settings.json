@@ -87,6 +87,7 @@
     "typescriptreact": "typescriptreact"
   },
   //html
+  "html.enable": true,
   "html.trace.server": "message",
   "html.format.enable": true,
   //imselect

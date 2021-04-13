@@ -33,11 +33,12 @@ let g:coc_global_extensions =[
 \ 'coc-emmet',
 \ 'coc-css',
 \ 'coc-stylelint',
+\ 'coc-tailwindcss',
 \ 'coc-vetur',
 \ 'coc-svg',
 \ 'coc-pyright'
 \]
-" \ 'coc-python',
+" \ 'coc-smartf', " Related: EasyMotion
 
 augroup coc_event
   autocmd!
