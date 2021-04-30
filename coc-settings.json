@@ -182,4 +182,6 @@
   //   }
   // ],
   "zi.enable": true,
+  //vetur
+  "vetur.ignoreProjectWarning": true
 }
