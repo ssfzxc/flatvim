@@ -48,28 +48,29 @@ let g:airline_symbols.notexists = ''
 let g:airline_symbols.whitespace = 'Ξ'
 
 " let g:airline_theme = 'solarized_flood'
-let g:airline_theme = 'molokai'
+" let g:airline_theme = 'molokai'
+let g:airline_theme='onedark'
 
-let g:airline_mode_map = {
-    \ '__'     : '-',
-    \ 'c'      : 'C',
-    \ 'i'      : 'I',
-    \ 'ic'     : 'I',
-    \ 'ix'     : 'I',
-    \ 'n'      : 'N',
-    \ 'multi'  : 'M',
-    \ 'ni'     : 'N',
-    \ 'no'     : 'N',
-    \ 'R'      : 'R',
-    \ 'Rv'     : 'R',
-    \ 's'      : 'S',
-    \ 'S'      : 'S',
-    \ ''     : 'S',
-    \ 't'      : 'T',
-    \ 'v'      : 'V',
-    \ 'V'      : 'V',
-    \ ''     : 'V',
-    \ }
+" let g:airline_mode_map = {
+"     \ '__'     : '-',
+"     \ 'c'      : 'C',
+"     \ 'i'      : 'I',
+"     \ 'ic'     : 'I',
+"     \ 'ix'     : 'I',
+"     \ 'n'      : 'N',
+"     \ 'multi'  : 'M',
+"     \ 'ni'     : 'N',
+"     \ 'no'     : 'N',
+"     \ 'R'      : 'R',
+"     \ 'Rv'     : 'R',
+"     \ 's'      : 'S',
+"     \ 'S'      : 'S',
+"     \ ''     : 'S',
+"     \ 't'      : 'T',
+"     \ 'v'      : 'V',
+"     \ 'V'      : 'V',
+"     \ ''     : 'V',
+"     \ }
 
 let g:airline#extensions#coc#enabled = 1
 let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'

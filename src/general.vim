@@ -1,6 +1,8 @@
 "General settins{{{
- colorscheme gruvbox
+set background=dark
+" colorscheme gruvbox
 " colorscheme toast
+colorscheme onedark
 set helplang=cn
 set mouse=nv                 " Disable mouse in command-line mode
 set report=0                 " Don't report on line changes

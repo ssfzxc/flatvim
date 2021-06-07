@@ -60,6 +60,8 @@ function! s:main()
     call dein#add('easymotion/vim-easymotion')
     " multi cursor
     " call dein#add('mg979/vim-visual-multi')
+    "Switch between single-line and multiline forms of code 
+    " call dein#add('AndrewRadev/splitjoin.vim')
     " " }}}
 
     "fuzzyfind{{{
@@ -80,13 +82,14 @@ function! s:main()
     " theme
     call dein#add('ryanoasis/vim-devicons')
     call dein#add('kyazdani42/nvim-web-devicons')
-    call dein#add('gruvbox-community/gruvbox')
     " colorscheme
+    call dein#add('gruvbox-community/gruvbox')
     call dein#add('jsit/toast.vim')
     call dein#add('altercation/vim-colors-solarized')
     call dein#add('reedes/vim-colors-pencil')
     call dein#add('srcery-colors/srcery-vim')
     call dein#add('romainl/Apprentice')
+    call dein#add('joshdick/onedark.vim')
     "}}}
 
     "languages{{{
@@ -115,7 +118,7 @@ function! s:main()
     call dein#add('ron-rs/ron.vim', {'on_ft': 'ron'})
     "}}}
     
-    "version{{{
+    "version control {{{
     call dein#add('lambdalisue/gina.vim', {'on_cmd': 'Gina'})
     call dein#add('tpope/vim-fugitive', {'on_cmd': [ 'G', 'Git', 'Gfetch', 'Gpush', 'Glog', 'Gclog', 'Gdiffsplit' ]})
     call dein#add('mhinz/vim-signify')
