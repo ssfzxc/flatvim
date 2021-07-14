@@ -110,8 +110,8 @@ nmap <leader>x  <Plug>(coc-cursors-operator)
 " vim-which-key{{{
 set timeoutlen=500
 
-let g:mapleader = "\<Space>"
-let g:maplocalleader = '\'
+let mapleader = "\<Space>"
+let maplocalleader = '\'
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  '\'<CR>
 let g:which_key_map =  {}

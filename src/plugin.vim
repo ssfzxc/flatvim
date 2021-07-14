@@ -18,7 +18,7 @@ function! s:main()
           \ 'merged': 0,
           \ 'rev': 'release',
           \ })
-    call dein#add('honza/vim-snippets', {'merged': 0, 'depends': 'coc.nvim', 'if': 'has("pythone3")'})
+    call dein#add('honza/vim-snippets', {'merged': 0, 'depends': 'coc.nvim', 'if': 'has("python3")'})
     " }}}
 
     " edit enhance{{{
